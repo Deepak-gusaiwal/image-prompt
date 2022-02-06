@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show-image in large function</title>
+</head>
+<style>
+.img-box{
+    width:400px;
+    height: auto;
+    border: 2px solid red;
+}
+.images{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.btn{
+    font-size:15px;
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 4px;
+    margin: 4px auto;
+    display: block;
+}
+.btn:hover{
+    background-color: rgb(250, 66, 66);
+    color: red;
+    cursor: pointer;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+/* .prompt{
+    background-color: rgba(255, 0, 0, 0.205);
+    z-index: -1;
+} */
+.abso{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 60vw;
+    height: 80vh;
+    margin: auto;
+    border: 50px solid red;
+}
+.content{
+    font-size: 45px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-weight: bolder;
+}
+</style>
+<body>
+  <div class="prompt ">
+
+  </div>
+    <div class="container">
+        <div class="img-box">
+            <img class="images " src="./gif/rengoku.gif" alt="">
+            <div class="content" >
+                This is content
+            </div>
+            <button class="btn">
+                show
+            </button>
+        </div>
+
+        <div class="img-box">
+            <img class="images" src="./gif/rengoku2.gif" alt="">
+            <button class="btn">
+                show
+            </button>
+        </div>
+
+        <div class="img-box">
+            <img class="images" src="./gif/rengoku2.gif" alt="">
+            <button class="btn">
+                show
+            </button>
+        </div>
+
+        <div class="img-box">
+            <img class="images" src="./gif/rengoku2.gif" alt="">
+            <button class="btn">
+                show
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let btn = document.querySelectorAll('.btn');
+    //   let arr =  Array.from(btn)
+      btn.forEach((e)=>{
+            console.log(e);
+        e.addEventListener('click',()=>{
+            console.log('you clicked on the show btn');
+           let img =  e.previousElementSibling;
+           console.log(img);
+
+           img.classList.add('abso')
+
+           img.addEventListener('click',()=>{
+               img.classList.remove('abso')
+           });
+        //    this is the function to show the image on full screen
+            // img.requestFullscreen();
+        });
+        
+        })
+    </script>
+</body>
+</html>
